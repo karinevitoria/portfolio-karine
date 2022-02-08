@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Inicio</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+<!--Aqui é a parte de navegação-->
+  <nav role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="assets/images/pngwing.com.png" alt="logo" width="120"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="curriculum.html">Meu currículo</a></li>
+        <li><a href="calculadora.html">Calculadora</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="curriculum.html">Meu currículo</a></li>
+        <li><a href="calculadora.html">Calculadora</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <!--Aqui são os inputs do formulário-->
+  <div class="container">
+    <h1>Busca CEP</h1>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <!--Aqui é o campo de CEP -->
+        <div class="input-field col s12">
+          <input onmouseout="consultarCepAjax()" placeholder="Ex.: 5030031" id="cep" type="text" class="validate">
+          <label for="cep">CEP</label>
+        </div>
+        <!--Aqui é o campo de CIDADE -->
+        <div class="input-field col s12">
+          <input placeholder="Ex.: Recife" id="localidade" type="text" class="validate">
+          <label for="localidade">Cidade</label>
+        </div>
+        <!--Aqui é o campo de RUA -->
+        <div class="input-field col s12">
+          <input placeholder="Ex.: Rua Sete" id="logradouro" type="text" class="validate">
+          <label for="logradouro">Rua</label>
+        </div>
+        <!--Aqui é o campo de BAIRRO -->
+        <div class="input-field col s12">
+          <input placeholder="Ex.: Pina" id="bairro" type="text" class="validate">
+          <label for="bairro">Bairro</label>
+        </div>
+        <!--Aqui é o campo de ESTADO -->
+        <div class="input-field col s12">
+          <input placeholder="Ex.: Pernambuco" id="uf" type="text" class="validate">
+          <label for="uf">Estado</label>
+        </div> 
+        <!--Aqui é o campo de DDD -->
+        <div class="input-field col s12">
+          <input placeholder="Ex.: 81" id="ddd" type="text" class="validate">
+          <label for="ddd">DDD</label>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/script.js"></script>
+
+  </body>
+</html>

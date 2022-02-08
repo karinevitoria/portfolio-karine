@@ -1,0 +1,25 @@
+<ul id="pessoas" class="collection">
+     
+</ul>
+
+<script>
+     $.getJSON(`http://localhost:3000/alunos`, function (data, status) {
+     console.log(data)
+     var conjPessoa = []
+     for (const pessoa of data){
+          conjPessoa.push(`
+          class="collection">
+          <li class="collection-item avatar">
+          <img src="images/yuna.jpg" alt="" class="circle">
+          <span class="title">${pessoa.nome}</span>
+          <p>First Line <br>
+         Second Line
+          </p>
+           <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+          </li>
+          `)
+          console.log(`aqui pessoa ${pessoa}`)
+     }
+    $('#pessoas').html(conjPessoa)
+     })
+</script>
