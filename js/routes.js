@@ -18,3 +18,7 @@ function mudaPessoas() {
     $("#content").load("pages/pessoas.html");
     $(".sidenav-overlay").click();
 }
+function mudaLPessoas() {
+    $("#content").load("pages/listaContatos.html");
+    $(".sidenav-overlay").click();
+}
