@@ -2943,11 +2943,12 @@ ul.staggered-list li {
 
 .page-footer {
   padding-top: 20px;
+  padding-bottom: 20px;
   color: #fff;
   background-color: #ee6e73;
 }
 
-.page-footer .footer-copyright {
+/* .page-footer .footer-copyright {
   overflow: hidden;
   min-height: 50px;
   display: -webkit-box;
@@ -2965,7 +2966,7 @@ ul.staggered-list li {
   padding: 10px 0px;
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(51, 51, 51, 0.08);
-}
+} */
 
 table, th, td {
   border: none;
@@ -3427,7 +3428,6 @@ table span.badge {
 }
 
 .container {
-  margin: 0 auto;
   max-width: 1280px;
   width: 90%;
 }
@@ -3469,7 +3469,6 @@ table span.badge {
 .row {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
 }
 
 .row:after {
@@ -3479,11 +3478,11 @@ table span.badge {
 }
 
 .row .col {
-  float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  /* float: left; */
+  /* -webkit-box-sizing: border-box; */
+          /* box-sizing: border-box; */
   padding: 0 0.75rem;
-  min-height: 1px;
+  /* min-height: 1px; */
 }
 
 .row .col[class*="push-"], .row .col[class*="pull-"] {
@@ -3525,12 +3524,12 @@ table span.badge {
   right: auto;
 }
 
-.row .col.s6 {
+/* .row .col.s6 {
   width: 50%;
   margin-left: auto;
   left: auto;
   right: auto;
-}
+} */
 
 .row .col.s7 {
   width: 58.3333333333%;
@@ -4269,10 +4268,10 @@ table span.badge {
 
 nav {
   color: #fff;
-  background-color: #ee6e73;
+  background-color: #c4c6e7;
   width: 100%;
   height: 56px;
-  line-height: 56px;
+  /* line-height: 56px; */
 }
 
 nav.nav-extended {
@@ -4296,7 +4295,7 @@ nav a {
 nav i,
 nav [class^="mdi-"], nav [class*="mdi-"],
 nav i.material-icons {
-  display: block;
+  /* display: block; */
   font-size: 24px;
   height: 56px;
   line-height: 56px;
@@ -4475,7 +4474,7 @@ nav .input-field label.active i {
   }
   nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
     height: 64px;
-    line-height: 64px;
+    /* line-height: 64px; */
   }
   .navbar-fixed {
     height: 64px;
@@ -4520,11 +4519,11 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: inherit;
 }
 
-h1 {
+/* h1 {
   font-size: 4.2rem;
   line-height: 110%;
   margin: 2.8rem 0 1.68rem 0;
-}
+} */
 
 h2 {
   font-size: 3.56rem;

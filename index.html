@@ -1,57 +1,137 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+<title>Portfolio Karine</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-    <title>Portfolio Karine</title>
-
-    <!-- CSS  -->
-    
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-</head>
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="css/materialize.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
 <body>
-    <nav class="blue" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="./assets/images/logo.png" alt="logo" width="120" srcset=""></a>
-                <ul class="right hide-on-med-and-down" >
-                    <li><a href="/"><i class="material-icons">home</i> Home </a></li>
-                    <li><a onclick="mudaCEP()"> <i class="material-icons">search</i> Busca CEP </a></li>
-                    <li><a onclick="mudaCalc()"><i class="material-icons">dialpad</i> Calculadora </a></li>
-                    <li><a onclick="mudaAluno()"><i class="material-icons">mood</i> Nota Aluno </a></li>
-                    <li><a onclick="mudaCurriculo()"><i class="material-icons">school</i> Meu currículo </a></li>
-                    <li><a onclick="mudaPessoas()"><i class="material-icons">people</i> Pessoas </a></li>
-                    <li><a onclick="mudaLPessoas()"><i class="material-icons">list</i> Lista de contatos </a></li>
-                </ul>
 
-                <ul id="nav-mobile" class="sidenav">
-                    <li><a href="/"><i class="material-icons">home</i> Home </a></li>
-                    <li><a onclick="mudaCEP()"> <i class="material-icons">search</i> Busca CEP </a></li>
-                    <li><a onclick="mudaCalc()"><i class="material-icons">dialpad</i> Calculadora </a></li>
-                    <li><a onclick="mudaAluno()"><i class="material-icons">mood</i> Nota Aluno </a></li>
-                    <li><a onclick="mudaCurriculo()"><i class="material-icons">school</i> Meu Currículo </a></li>
-                    <li><a onclick="mudaPessoas()"><i class="material-icons">people</i> Pessoas </a></li>
-                    <li><a onclick="mudaLPessoas()"><i class="material-icons">list</i> Lista de Contatos </a></li>
-                </ul>
-                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
-
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" id="closeMenu" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px"><i class="material-icons">arrow_forward_ios</i></a>
+  <div class="w3-container">
+    <h3 ><b>Karine<br>Vitória</b></h3>
+  </div>
+  <div class="w3-bar-block"><u>
+                   <li><a href="/"><i class="material-icons">home</i> Home </a></li>
+                    <li style="cursor: pointer;"><a onclick="mudaCEP()"> <i class="material-icons">search</i> Busca CEP </a></li>
+                    <li style="cursor: pointer;"><a onclick="mudaCalc()"><i class="material-icons">dialpad</i> Calculadora </a></li>
+                    <li style="cursor: pointer;"><a onclick="mudaAluno()"><i class="material-icons">mood</i> Nota Aluno </a></li>
+                    <li style="cursor: pointer;"><a onclick="mudaCurriculo()"><i class="material-icons">school</i> Meu currículo </a></li>
+                    <li style="cursor: pointer;"><a onclick="mudaPessoas()"><i class="material-icons">people</i> Alunos </a></li>
+</ul>
+                  </div>
+<div style="justify-items: center";>
+  <h5 style="text-align: center;" class="white-text"><br><br>  Feito com ♥.</h5>
+            <p style="text-align: center;" class="grey-text text-lighten-4">Redes sociais.</p>
+            <a href="https://www.linkedin.com/in/karinevfalves/" target="_blank"><i style="color:white; margin-left: 120px;" class="fa fa-linkedin w3-hover-opacity" ></i></a>
+</div>
+                  
+</nav>
 
 
-    <div id="content" class="container">
-        <h1 id="title">DASHBOARD</h1>
-    </div>
 
-    <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/scriptIndex.js"></script>
-    <script src="/js/routes.js"></script>
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Karine Vitória</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div id="content" class="container">
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><b>Karine Vitória</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>desenvolvedora web</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+  
+
+  <!-- Services -->
+  <div class="w3-container" id="services" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Quem sou eu</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Estudante de Sistemas de Informação na UFRPE, tenho grande interesse na área de desenvolvimento Web.
+      Atualmente, estou estudando para ser uma dev full-stack. 
+    </p>
+  </div>
+  
+  
+  <!-- Contact -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Contato.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p id="paragrafo">
+      Gostaria de me contatar? <br> Aqui estão algumas formas. <br><br>
+      <b>E-mail:</b>karinevfalves@gmail.com <br>
+      <b>Telefone:</b>(81)99918-7858 <br>
+      <a href="https://www.linkedin.com/in/karinevfalves/" style="font-family: 'Poppins';" target="_blank"><i style="color: black;" class="fa fa-linkedin w3-hover-opacity" ></i>   Linkedin</a>
+    </p>
+
+  </div>
+
+<!-- End page content -->
+</div>
+
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+<script src="./js/routes.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<style>
+  li {
+  list-style-type: none;
+}
+*{text-decoration: none;}
+#paragrafo{
+  font-size: larger;
+}
+h3{
+  font-size: 2.92rem;
+}
+div.w3-container{
+  margin: 1.9466666667rem 0 1.168rem 0;
+}
+</style>
+
 </body>
-
-
 </html>

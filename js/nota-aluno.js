@@ -5,6 +5,8 @@ function calcularNota() {
         (+notas[2].value) +
         (+notas[3].value);
     $('#resultado').html(verAprovacao(media/4));
+    let mediaTotal = media/4;
+    $('#media').html("Sua média foi: " + mediaTotal);
 }
 
 function verAprovacao(media) {

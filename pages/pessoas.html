@@ -1,50 +1,316 @@
-<ul id="pessoas" class="collection">
-     
-</ul>
-
-<script>
-     $.getJSON('http://localhost:3000/alunos', function(data, status){
-          console.log(data)
-          let pessoas = []
-     for (let pessoa of data){
-          pessoas.push(`
-          <li class="collection-item avatar">
-          <img style="width: 40px; height:40px;" src="/assets/images/WhatsApp Image 2022-02-09 at 20.31.52.jpeg" alt="" class="circle">
-          <span class="title">${pessoa.nome}</span>
-          <p>${pessoa.curso || 'Não tem'}<br>
-          ${pessoa.matricula || 'Não tem'}
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-          </li>
-          `)
-     }
-     $('#pessoas').html(pessoas)
-     })
-</script>
-
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+  <title>Alunos Matriculados</title>
+<h1>Lista de Alunos</h1>
+<h5>Faça aqui uma lista de alunos.<br> <br></h5>
 <div class="row">
      <form class="col s12">
        <div class="row">
-         <div id="nome" class="input-field col s6">
-           <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-           <label for="first_name">First Name</label>
+         <div  class="input-field col s6">
+           <input placeholder="Ex: Maria" id="nome" type="text" class="validate">
+           <label class="active" for="nome">Nome</label>
          </div>
-         <div id="curso" class="input-field col s6">
-           <input id="last_name" type="text" class="validate">
-           <label for="last_name">Last Name</label>
-         <div id="matricula" class="input-field col s6">
-           <input id="last_name" type="text" class="validate">
-           <label for="last_name">Last Name</label>
+         <div  class="input-field col s6">
+           <input placeholder="Ex: C. da computação" id="curso" type="text" class="validate">
+           <label class="active" for="curso">Curso</label>
+         </div>
+         <div  class="input-field col s6">
+           <input placeholder="Ex: example@example.com" id="email" type="text" class="validate">
+           <label class="active" for="email">Email</label>
          </div>
        </div>
      </form>
-</div> 
+</div>
+<button id="btnPOST" class="waves-effect waves-light btn" >Salvar novo aluno</button>
+<div class="container">
+<ul  class="container" id="pessoas" class="collection">
 
-<a id="btPost" class="waves-effect waves-light btn-small">Button</a>
+</ul>
+</div>
+</div>
 <script>
-var btPost = addEventListener('click', );
 
-  $.post("http://localhost:3000/alunos/", function(data, status){
-    alert("Data: " + data + "\nStatus: " + status);
+(function() {
+
+'use strict';
+
+var lastId = 0;
+var taskWrapper = document.getElementById("pessoas");
+var btnSave = document.getElementById("btnPOST");
+var btnDelete = document.getElementById("delete");
+var btnUpdate = document.getElementById("update");
+var removeIcon;
+var updateIcon;
+var taskList;
+
+// Initialize taskList 
+// Add event to save button
+// Render the list
+
+function init() {
+
+  if (!!(window.localStorage.getItem('taskList'))) {
+    taskList = JSON.parse(window.localStorage.getItem('taskList'));
+  } else {
+    taskList = [];
+  }
+  btnSave.addEventListener('click', saveTask);
+  showList();
+}
+
+//End Init
+
+//CRUD task
+
+function showList() {
+
+  // if (!!taskList.length) {
+  //   // for (var item in taskList) {
+  //     //   var task = taskList[item];
+  //     //   addTaskToList(task);
+  //     // }
+  //   }
+    addTaskToList(taskList);
+    getLastTaskId();
+    syncEvents();
+  
+}
+
+function saveTask(event) {
+
+  var task = {
+    taskId: lastId,
+    nome: document.getElementById("nome").value,
+    curso: document.getElementById("curso").value,
+    email: document.getElementById("email").value
+  };
+  taskList.push(task);
+  syncTask();
+  addTaskToList(taskList);
+  // syncEvents();
+  lastId++;
+  // showList();
+}
+
+function addTaskToList(pessoas) {
+  var dados = [] 
+  // init();
+  console.log('listando as pessoass',pessoas)
+  if(pessoas.length !== undefined){
+    console.log("tem valor", pessoas.length)
+  }else {
+    console.log("não tem valor", pessoas.length)
+  }
+  for (let pessoa of pessoas){
+  dados.push(`
+           <li class="collection-item avatar">
+           <img style="width: 40px; height:40px;object-fit: cover;" src="/assets/images/avatar.png" alt="" class="circle">
+           <span class="title">${pessoa.nome}</span>
+           <p>${pessoa.curso}<br>
+               ${pessoa.email}
+           </p>
+           <a id="delete" href="#!" class="secondary-content"><i  class="material-icons"></i></a><br>
+           <a id="update" href="#!" class="secondary-content"><i class="material-icons"></i></a>
+              </li>
+           `)}
+  // var removeIcon = document.createElement('span');
+  // var element = document.createElement('li');
+  // var updateIcon = document.createElement('span');
+
+  
+  // removeIcon.innerHTML = "X";
+  // removeIcon.className = "remove_item clickeable";
+  // removeIcon.setAttribute("title", "Remove");
+  
+  // updateIcon.innerHTML = "U";
+  // updateIcon.className = "update_icon clickeable";
+  // updateIcon.setAttribute("title", "Update");
+  
+  
+  // element.appendChild(removeIcon);
+  // element.appendChild(updateIcon);
+  // $('#update') = updateIcon
+  // element.setAttribute("id", task.taskId);
+  // element.innerHTML += task.nome;
+  // taskWrapper.appendChild(dados);
+  $('#pessoas').html(dados)
+}
+
+function updateTask(event) {
+
+  var taskTag = event.currentTarget.parentNode;
+  var taskId = taskTag.id;
+  var taskToUpdate = findTask(taskId).task;
+  var pos = findTask(taskId).pos;
+  if (!!taskToUpdate) {
+    var nome = prompt("Task Description", taskToUpdate.nome);
+    var curso = prompt("Task State", taskToUpdate.curso);
+    var email = prompt("Task State", taskToUpdate.email);
+
+    taskToUpdate.nome = nome;
+    taskToUpdate.curso = curso;
+    taskToUpdate.email = email;
+    taskList[pos] = taskToUpdate;
+    taskTag.lastChild.textContent = taskToUpdate.nome;
+    syncTask();
+  }
+}
+
+function removeTask(event) {
+
+  var taskToRemove = event.currentTarget.parentNode;
+  var taskId = taskToRemove.id;
+  taskWrapper.removeChild(taskToRemove);
+  taskList.forEach(function(value, i) {
+    if (value.taskId == taskId) {
+      taskList.splice(i, 1);
+    }
+  })
+
+  syncTask();
+}
+
+// End CRUD
+
+
+//Common
+
+function syncTask() {
+
+  window.localStorage.setItem('taskList', JSON.stringify(taskList));
+  taskList = JSON.parse(window.localStorage.getItem('taskList'));
+}
+
+function getLastTaskId() {
+  var lastTask = taskList[taskList.length - 1]|| 0;
+  lastId = lastTask.taskId + 1;
+}
+
+function syncEvents() {
+
+  updateIcon = document.getElementsByClassName("update_icon");
+  removeIcon = document.getElementsByClassName("remove_item");
+  if (!!removeIcon.length) {
+    for (var i = 0; i < removeIcon.length; i++) {
+      removeIcon[i].addEventListener('click', removeTask);
+    }
+  }
+  if (!!updateIcon.length) {
+    for (var j = 0; j < updateIcon.length; j++) {
+      updateIcon[j].addEventListener('click', updateTask);
+    }
+  }
+}
+
+function findTask(id) {
+
+  var response = {
+    task: '',
+    pos: 0
+  };
+  taskList.forEach(function(value, i) {
+    if (value.taskId == id) {
+      response.task = value;
+      response.pos = i;
+    }
   });
+
+  return response;
+}
+
+//End Common
+
+
+init();
+
+
+})();
+
+//   function salvarDados(){
+//     let campos = $('input');
+//     var todosAlunos = [];
+    
+//     var aluno ={
+//       nome:campos[0].value,
+//       curso:campos[1].value,
+//       email:campos[2].value
+//     }
+
+//     var aluno_normal = []
+//     var aluno_string = ""
+
+//     if (localStorage.getItem("alunos") !== null) {
+//       aluno_normal.push(localStorage.getItem("alunos")) ;
+//       aluno_string = JSON.stringify(aluno)
+//       aluno_normal.push(aluno_string)
+//       localStorage.setItem("alunos", aluno_normal)
+//       // todosAlunos.push(aluno_normal)
+//     } else {
+//       aluno_string = JSON.stringify(aluno)
+//       aluno_normal.push(aluno_string)
+//       localStorage.setItem("alunos", aluno_normal)
+//     }
+    
+    
+//     // todosAlunos.push(aluno_string)
+
+    
+    
+//     console.log(JSON.parse(aluno_normal))
+    
+// }
+
+//   function pegarDados() {
+//     let alunosData = []
+//     let pessoas = []
+//     alunosData.push(localStorage.getItem("alunos"))
+//     let pessoasD = alunosData.toString().split(",")
+//     console.log(pessoasD)
+
+//     pessoasD[0]= pessoasD[0].slice(9,-1);
+//     pessoasD[1]= pessoasD[1].slice(9,-1);
+//     pessoasD[2]= pessoasD[2].slice(9,-1);
+//     for (let pessoa of pessoasD){
+//           pessoas.push(`
+//           <li class="collection-item avatar">
+//           <img style="width: 40px; height:40px;object-fit: cover;" src="/assets/images/avatar.png" alt="" class="circle">
+//           <span class="title">${pessoasD[0]}</span>
+//           <p>${pessoasD[1]}<br>
+//             ${pessoasD[2]}
+//           </p>
+//           <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+//           </li>
+//           `)
+//      }
+//      $('#pessoas').html(pessoas)
+//   }
+
+//      $.getJSON('http://localhost:3000/alunos', function(data, status){
+//           console.log(data)
+//           let pessoas = []
+//      for (let pessoa of data){
+//           pessoas.push(`
+//           <li class="collection-item avatar">
+//           <img style="width: 40px; height:40px;" src="/assets/images/WhatsApp Image 2022-02-09 at 20.31.52.jpeg" alt="" class="circle">
+//           <span class="title">${pessoa.nome}</span>
+//           <p>${pessoa.curso || 'Não tem'}<br>
+//           ${pessoa.matricula || 'Não tem'}
+//           </p>
+//           <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+//           </li>
+//           `)
+//      }
+//     //  $('#pessoas').html(pessoas)
+//      })
+
+  
 </script>
+<style>
+  @media(max-width:992px){
+      .w3-main{
+        margin-top: 80px;
+} .container{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+}
+</style>
