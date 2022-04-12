@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="shortcut icon" href="./favicon.ico">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <link rel="stylesheet" href="css/materialize.css">
-<link rel="icon" href="./favicon.ico">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -48,7 +48,7 @@ body {font-size:16px;}
 
 
 <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge ">
   <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
   <span>Karine Vitória</span>
 </header>
@@ -87,9 +87,9 @@ body {font-size:16px;}
     <hr style="width:50px;border:5px solid red" class="w3-round">
     <p id="paragrafo">
       Gostaria de me contatar? <br> Aqui estão algumas formas. <br><br>
-      <b>E-mail:</b>karinevfalves@gmail.com <br>
-      <b>Telefone:</b>(81)99918-7858 <br>
-      <a href="https://www.linkedin.com/in/karinevfalves/" style="font-family: 'Poppins';" target="_blank"><i style="color: black;" class="fa fa-linkedin w3-hover-opacity" ></i>   Linkedin</a>
+      <b>E-mail: </b>karinevfalves@gmail.com <br>
+      <b>Telefone: </b>(81)99918-7858 <br>
+      <a href="https://www.linkedin.com/in/karinevfalves/" style="font-family: 'Poppins';" target="_blank"><i style="color: black;" class="fa fa-linkedin w3-hover-opacity" ></i></a>
     </p>
 
   </div>
@@ -132,10 +132,18 @@ function onClick(element) {
 }
 h3{
   font-size: 2.92rem;
+  margin: 0%;
+  padding-bottom: 30px;
 }
-div.w3-container{
-  margin: 1.9466666667rem 0 1.168rem 0;
+
+@media (max-width: 993px){
+  h3{
+  padding-bottom: 30px;
+  padding-top: 40px;
 }
+}
+
+
 </style>
 
 </body>
